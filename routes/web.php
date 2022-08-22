@@ -49,9 +49,14 @@ Route::post('confirm/confirm', 'App\Http\Controllers\XNController@confirm');
 
 Route::get('confirm/doneconfirm', 'App\Http\Controllers\XNController@listDoneConfirm');
 
-Route::delete('logout', 'App\Http\Controllers\AuthController@logout');
+ Route::DELETE('logout', 'App\Http\Controllers\AuthController@logout');
 
-
+Route::group([
+    'middleware' => 'auth:api'
+  ], function() {
+      Route::DELETE('logout', 'App\Http\Controllers\AuthController@logout');
+      Route::get('me', 'App\Http\Controllers\AuthController@user');
+  });
 
 Route::get('change-language/{language}', 'App\Http\Controllers\HomeController@changeLanguage')->name('user.change-language');
 

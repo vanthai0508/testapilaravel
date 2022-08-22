@@ -27,7 +27,7 @@
 
             <a href="/cv/list" class="button">{{ trans('message.manage') }}</a>
             <a href="/confirm/doneconfirm" class="button">{{ trans('message.participation') }}</a>
-            <a href="logout" class="button">{{ trans('message.logout') }}</a>
+            <a href="/logout" class="button">{{ trans('message.logout') }}</a>@method('DELETE') {{ csrf_field() }}
 
 
 

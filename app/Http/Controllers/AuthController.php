@@ -90,9 +90,10 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->token()->revoke();
-        return response()->json([
-            'status' => 'success',
-        ]);
+        // return response()->json([
+        //     'status' => 'success',
+        // ]);
+        return view("user/login");
     }
  
     public function user(Request $request)
