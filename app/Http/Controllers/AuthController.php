@@ -37,9 +37,7 @@ class AuthController extends Controller
  
         $user->save();
  
-        return response()->json([
-            'status' => 'success',
-        ]);
+        return view('user/login');
     }
  
     public function login(Request $request)

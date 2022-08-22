@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 @extends('layouts.master')
+
 <head>
 
 
-@section('title', 'App - Top Page')
+    @section('title', 'App - Top Page')
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <title>Document</title>
 
     @section('header')
     @include('partial.header')
-@stop
+    @stop
 </head>
+
 <body>
     <div class="start">
         <h1>{{ trans('message.welcome') }}</h1>
         <div class="link">
             <a href="/user/login" class="button">{{ trans('message.login') }}</a>
             <a href="/user/create" class="button">{{ trans('message.register') }}</a>
-            
+
             <a href="/cv/create" class="button">{{ trans('message.apply') }}</a>
             <a href="/confirm/confirm" class="button">{{ trans('message.confirm') }}</a>
-                     
+
             <a href="/cv/list" class="button">{{ trans('message.manage') }}</a>
             <a href="/confirm/doneconfirm" class="button">{{ trans('message.participation') }}</a>
+            <a href="logout" class="button">{{ trans('message.logout') }}</a>
 
-            
 
-            
-                        
 
-                        
+
+
+
+
         </div>
     </div>
     <div class="column">
         <div class="article">
             <h1>Reduced development costs</h1>
 
-           
+
             <section>
                 By having Moa's SE stationed at your company, you can ensure quality and keep costs down to about half
                 of the cost in Japan.

@@ -8,7 +8,7 @@ Route::group([
     'prefix' => 'auth'
 ], function () {
     Route::post('user/login', 'App\Http\Controllers\AuthController@login');
-    Route::post('signup', 'App\Http\Controllers\AuthController@signup');
+    Route::post('user/create', 'App\Http\Controllers\AuthController@signup');
    
     Route::group([
       'middleware' => 'auth:api'

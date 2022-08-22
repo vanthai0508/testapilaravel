@@ -19,11 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('cv/list', 'App\Http\Controllers\CVController@list');
 
 Route::get('user/create', 'App\Http\Controllers\UserController@createView');
 
-Route::post('user/create', 'App\Http\Controllers\UserController@create');
+Route::post('user/create', 'App\Http\Controllers\AuthController@signup');
+
+//Route::post('user/create', 'App\Http\Controllers\UserController@create');
 
 Route::get('user/login', 'App\Http\Controllers\UserController@loginView');
 
@@ -44,6 +48,8 @@ Route::get('confirm/confirm', 'App\Http\Controllers\XNController@confirmview');
 Route::post('confirm/confirm', 'App\Http\Controllers\XNController@confirm');
 
 Route::get('confirm/doneconfirm', 'App\Http\Controllers\XNController@listDoneConfirm');
+
+Route::delete('logout', 'App\Http\Controllers\AuthController@logout');
 
 
 
