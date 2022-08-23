@@ -4,26 +4,25 @@
     <link href="{{asset('css/create.css')}}" rel="stylesheet">
 </head>
 <div class="login-box">
-    <h2>LOGIN</h2>
-    @if(session('status'))
-    <ul>
-        <li class="text-danger">{{ session('status') }} </li>
-    </ul>
-    @endif
-    <form method="post" action="">
+    <h2>FORGOT PASSWORD</h2>
+    
+    <form method="post,get" action="">
         
         <div class="user-box">
-            <input type="text" name="email" id="email" required="">
+            <input type="text" name="email" id="email" required="" value="">
             <label>Email</label>
         </div>
+
         <div class="user-box">
-            <input type="password" name="password" id="password" required="">
+            <input type="text" name="password" id="password" required="">
             <label>Password</label>
         </div>
 
-        <input type="submit" value="login">
         
-      
+
+        <input type="submit" value="reset">
+        
+        
         @csrf
     </form>
     <!-- <a href="index.php?Controller=user&Action=dangnhap">DANG NHAP</a> 

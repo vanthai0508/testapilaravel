@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Validator;
  
 class AuthController extends Controller
 {
+
+    public function viewMail()
+    {
+        return view('reset');
+    }
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -36,6 +41,12 @@ class AuthController extends Controller
         ]);
  
         $user->save();
+        // return response()->json([
+        //     'status' => 'success',
+            
+        //     'token_type' => 'Bearer',
+            
+        // ]);
  
         return redirect('user/login');
     }
