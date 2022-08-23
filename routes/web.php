@@ -58,7 +58,7 @@ Route::group([
       Route::get('me', 'App\Http\Controllers\AuthController@user');
   });
 
-Route::get('change-language/{language}', 'App\Http\Controllers\HomeController@changeLanguage')->name('user.change-language');
+//Route::get('change-language/{language}', 'App\Http\Controllers\HomeController@changeLanguage')->name('user.change-language');
 
 // middleware quyen admin
 Route::group(['middleware' => 'User-Account-Admin'], function()

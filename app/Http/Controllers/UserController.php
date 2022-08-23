@@ -53,21 +53,21 @@ class UserController extends Controller
     }
 
     //ham login
-    public function login(LoginRequest $request)
-    {
+    // public function login(LoginRequest $request)
+    // {
         
-        $username = $request->username;
-        $password = $request->password;
+    //     $username = $request->username;
+    //     $password = $request->password;
         
-            if(Auth::attempt(['username' => $username, 'password' => $password]))
-            {
-                return view('welcome');
-            }
-            else
-            {
-                return redirect()->back()->with('status', 'Username hoac Password khong dung');
+    //         if(Auth::attempt(['username' => $username, 'password' => $password]))
+    //         {
+    //             return view('welcome');
+    //         }
+    //         else
+    //         {
+    //             return redirect()->back()->with('status', 'Username hoac Password khong dung');
             
-            }
+    //         }
         
-    }
+    // }
 }

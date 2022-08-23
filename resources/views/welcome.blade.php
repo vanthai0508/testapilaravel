@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 @extends('layouts.master')
-
+@section('title', 'HOME')
+@section('content')
 <head>
-
-
-    @section('title', 'App - Top Page')
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{asset('css/home.css')}}">
-    <title>Document</title>
-
-    @section('header')
-    @include('partial.header')
-    @stop
+<link rel="stylesheet" href="{{asset('css/home.css')}}">
 </head>
+<html>
 
-<body>
+
+    <body>
     <div class="start">
         <h1>{{ trans('message.welcome') }}</h1>
         <div class="link">
@@ -96,6 +88,6 @@
     </div>
     </div>
 </body>
-
-
 </html>
+
+@endsection

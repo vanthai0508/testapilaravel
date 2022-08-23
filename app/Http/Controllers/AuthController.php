@@ -37,7 +37,7 @@ class AuthController extends Controller
  
         $user->save();
  
-        return view('user/login');
+        return redirect('user/login');
     }
  
     public function login(Request $request)
