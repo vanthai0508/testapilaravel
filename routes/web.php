@@ -25,15 +25,7 @@ Route::get('cv/list', 'App\Http\Controllers\CVController@list');
 
 Route::get('user/create', 'App\Http\Controllers\UserController@createView');
 
-//Route::post('user/create', 'App\Http\Controllers\AuthController@signup');
-
-//Route::post('user/create', 'App\Http\Controllers\UserController@create');
-
 Route::get('user/login', 'App\Http\Controllers\UserController@loginView');
-
-//Route::post('user/login', 'App\Http\Controllers\UserController@login');
-
-//Route::post('user/login', 'App\Http\Controllers\AuthController@login');
 
 Route::get('cv/create', 'App\Http\Controllers\CVController@applyView');
 
@@ -51,11 +43,6 @@ Route::get('confirm/doneconfirm', 'App\Http\Controllers\XNController@listDoneCon
 
 Route::DELETE('logout', 'App\Http\Controllers\AuthController@logout');
 
-//Route::post('reset-password', 'App\Http\Controllers\ResetPasswordController@sendMail');
-
-// Route::post('reset-password', 'App\Http\Controllers\ResetPasswordController@sendMail');
-
-//   Route::put('reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@reset');
 
 Route::group([
     'middleware' => 'auth:api'
@@ -64,7 +51,6 @@ Route::group([
       Route::get('me', 'App\Http\Controllers\AuthController@user');
   });
 
-//Route::get('change-language/{language}', 'App\Http\Controllers\HomeController@changeLanguage')->name('user.change-language');
 
 // middleware quyen admin
 Route::group(['middleware' => 'User-Account-Admin'], function()
@@ -103,7 +89,7 @@ Route::group(['middleware' => 'locale'], function() {
         ->name('user.change-language');
 });
 
-
+//route forgot password
 
 Route::get('forget-password', [App\Http\Controllers\auth\ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 
