@@ -6,13 +6,13 @@
 </head>
 <html>
 
-
+   
     <body>
     <div class="start">
         <h1>{{ trans('message.welcome') }}</h1>
         <div class="link">
             <a href="/user/login" class="button">{{ trans('message.login') }}</a>
-            <a href="/user/create" class="button">{{ trans('message.register') }}</a>
+            <a href="/api/auth/user/create" class="button">{{ trans('message.register') }}</a>
 
             <a href="/cv/create" class="button">{{ trans('message.apply') }}</a>
             <a href="/confirm/confirm" class="button">{{ trans('message.confirm') }}</a>

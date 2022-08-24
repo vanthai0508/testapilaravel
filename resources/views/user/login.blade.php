@@ -22,7 +22,7 @@
         </div>
 
         <input type="submit" value="login">
-        
+        <a href="/forget-password">FORGOT PASSWORD</a>
       
         @csrf
     </form>

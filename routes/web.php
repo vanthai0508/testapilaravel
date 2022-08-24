@@ -93,33 +93,34 @@ Route::group(['middleware' => 'User-Account'], function()
 
 });
 
+Route::get('user/login', 'App\Http\Controllers\UserController@loginView');
+
+Route::post('user/login', 'App\Http\Controllers\AuthController@login');
+
 // middleware da ngon ngu giao dien
 Route::group(['middleware' => 'locale'], function() {
     Route::get('change-language/{language}', 'App\Http\Controllers\HomeController@changeLanguage')
         ->name('user.change-language');
 });
 
-// Route::group([
-//     'prefix' => 'auth'
-// ], function () {
-//   //  Route::post('user/login', 'App\Http\Controllers\AuthController@login');
 
- 
-//     Route::group([
-//       'middleware' => 'auth:api'
-//     ], function() {
-//     //    Route::delete('logout', 'App\Http\Controllers\AuthController@logout');
-//         Route::get('me', 'App\Http\Controllers\AuthController@user');
-//     });
-// });
-// Route::post('user/create', 'App\Http\Controllers\AuthController@signup');
-// Route::post('user/login', 'App\Http\Controllers\AuthController@login');
 
-//Route::post('reset', 'App\Http\Controllers\ResetPasswordController@sendMail');
-//Route::post('reset-password', 'App\Http\Controllers\ResetPasswordController@sendMail')->name('mailreset');
+Route::get('forget-password', [App\Http\Controllers\auth\ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 
-//Route::post('reset', 'App\Http\Controllers\ResetPasswordController@sendMail');
- // Route::post('reset-passwordday/{token}', 'App\Http\Controllers\ResetPasswordController@reset');
+
+Route::post('forget-password', [App\Http\Controllers\auth\ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+
+
+Route::get('reset-password/{token}', [App\Http\Controllers\auth\ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+
+
+Route::post('reset-password', [App\Http\Controllers\auth\ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+
+
+
+
+
 Route::get('/test', function()
 {
     // $cvs=cv::all();

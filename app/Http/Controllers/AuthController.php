@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
 
-    public function viewMail()
-    {
-        return view('reset');
-    }
+    
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -87,6 +84,7 @@ class AuthController extends Controller
         }
  
         $token->save();
+        
         return view('welcome');
         // return response()->json([
         //     'status' => 'success',
@@ -104,7 +102,7 @@ class AuthController extends Controller
         // return response()->json([
         //     'status' => 'success',
         // ]);
-        return view("user/login");
+        return view("api/auth/user/login");
     }
  
     public function user(Request $request)
