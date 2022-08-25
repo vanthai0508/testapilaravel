@@ -70,8 +70,6 @@ class CVController extends Controller
         
         $result = $this->cv->find($id);
 
-        
-
         $user = User::find($result->id_user);
 
         $this->sendEmail($user->email,"cv/mail");

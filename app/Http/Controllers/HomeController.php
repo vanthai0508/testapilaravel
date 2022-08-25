@@ -13,10 +13,9 @@ class HomeController extends Controller
    //ham chuyen doi ngon ngu
    public function changeLanguage($language)
    {
-     
-
       Session::put('website_language', $language);
 
-      return view('welcome');
+   //   return view('welcome');
+   return redirect()->back();
    } 
 }

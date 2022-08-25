@@ -37,7 +37,7 @@ class ApplyRequest extends FormRequest
         return [
             'name.required' => 'Vui long nhap name',
             'position.required' => 'Vui long nhap position',
-            'phone.required' => 'Vui long nhap phonr'
+            'phone.required' => 'Vui long nhap phone'
         ];
     }
 

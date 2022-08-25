@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
 
-    
+    // ham register
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -40,13 +40,12 @@ class AuthController extends Controller
         $user->save();
         // return response()->json([
         //     'status' => 'success',
-            
-        //     'token_type' => 'Bearer',
-            
         // ]);
  
         return redirect('user/login');
     }
+
+    //ham login
  
     public function login(Request $request)
     {
@@ -56,7 +55,8 @@ class AuthController extends Controller
             'remember_me' => 'boolean'
         ]);
  
-        if ($validator->fails()) {
+        if ($validator->fails()) 
+        {
             return response()->json([
                 'status' => 'fails',
                 'message' => $validator->errors()->first(),
@@ -66,7 +66,8 @@ class AuthController extends Controller
  
         $credentials = request(['email', 'password']);
  
-        if (!Auth::attempt($credentials)) {
+        if (!Auth::attempt($credentials)) 
+        {
             return response()->json([
                 'status' => 'fails',
                 'message' => 'Unauthorized'
@@ -79,7 +80,8 @@ class AuthController extends Controller
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
  
-        if ($request->remember_me) {
+        if ($request->remember_me) 
+        {
             $token->expires_at = Carbon::now()->addWeeks(1);
         }
  
@@ -87,12 +89,6 @@ class AuthController extends Controller
         
         return view('welcome');
         // return response()->json([
-        //     'status' => 'success',
-        //     'access_token' => $tokenResult->accessToken,
-        //     'token_type' => 'Bearer',
-        //     'expires_at' => Carbon::parse(
-        //         $tokenResult->token->expires_at
-        //     )->toDateTimeString()
         // ]);
     }
  
@@ -102,7 +98,7 @@ class AuthController extends Controller
         // return response()->json([
         //     'status' => 'success',
         // ]);
-        return view("api/auth/user/login");
+        return view("user/login");
     }
  
     public function user(Request $request)
